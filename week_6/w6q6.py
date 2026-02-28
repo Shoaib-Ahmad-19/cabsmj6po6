@@ -10,11 +10,13 @@ def area(a,b,c):
     return sqrt(s*(s-a)*(s-b)*(s-c))
 
 def isequilateral(a,b,c):
-    if(a**2 == b**2 + c**2) or (b**2 == a**2 + c**2) or (c**2 == a**2 + b**2):
+    if(a == b == c) :
         return True
     else :
         return False
 
+def isTriangle(a,b,c):
+    return (a <= b + c) and (b <= a + c) and (c <= a + b)
 
 def isIsosceles(a,b,c):
     if(a == b) or (b == a) or (c == a):
@@ -22,16 +24,19 @@ def isIsosceles(a,b,c):
     else :
         return False
     
-a =int(input("Enter the length of first side :"))
-b =int(input("Enter the length of second side :"))
-c =int(input("Enter the length of third side :"))
+a =int(input("Enter the length of first side of Triangle :"))
+b =int(input("Enter the length of second side of Triangle :"))
+c =int(input("Enter the length of third side of Triangle :"))
 
 
-print("The area of the trianlge is : ",area(a,b,c))
+if isTriangle(a,b,c):
+    print("The area of the trianlge is : ",area(a,b,c))
 
-if isequilateral(a,b,c):
-    print("It is an Equilateral Triangle")
-elif isIsosceles(a,b,c):
-    print("It is an Isosceles Triangle")
+    if isequilateral(a,b,c):
+        print("It is an Equilateral Triangle")
+    elif isIsosceles(a,b,c):
+        print("It is an Isosceles Triangle")
+    else:
+        print("It is a Scalene Triangle")
 else:
-    print("It is a Scalene Triangle")
+    print("It's Not a Triangle")
