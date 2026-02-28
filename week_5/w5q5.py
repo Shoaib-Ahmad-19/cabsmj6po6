@@ -3,6 +3,7 @@
 from collections import Counter
 
 s = input("Enter a String : ")
-count = Counter(s)
+words = s.lower().split()
+count = Counter(words)
 
 print(count)
